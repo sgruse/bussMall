@@ -1,0 +1,21 @@
+
+body {
+  background-color: grey;
+}
+
+.pictures {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+}
+
+article {
+  display: center;
+}
+
+.imagesContainer {
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+  border: 2px;
+  border-color: black;
+}
