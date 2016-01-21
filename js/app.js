@@ -1,10 +1,11 @@
 'use strict'
 
-function Images(name, fileLoc, counter) {         //Constructor funciton to hold properties for all images.
+var allNames = ['bag', 'banana', 'boots', 'chair', 'chtulhu', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'unicorn', 'usb', 'water_can', 'wine_glass'];
+var allSources =['img/bag.jpg', 'img/banana.jpg', 'img/boots.jpg', 'img/chair.jpg', 'img/cthulhu.jpg', 'img/dragon.jpg', 'img/pen.jpg', 'img/scissors.jpg', 'img/shark.jpg', 'img/sweep.png', 'img/unicorn.jpg', 'img/usb.gif', 'img/water-can.jpg', 'img/wine-glass.jpg'];
+var locationsArray = [];
+function Images(name, fileLoc) {         //Constructor funciton to hold properties for all images.
   this.name = name;
   this.fileLoc = fileLoc;
-  // this.counter = 0;
-  // this.randomNumber = [];
   this.timesClicked = 0;                          //timesClicked = total times clicked
   this.timesDisplayed = 0;
   this.percentClicked = 0;
@@ -16,30 +17,16 @@ function randomNumber(){
   return Math.floor((Math.random() * locationsArray.length));        //randomNumber() returns random number
 }
 
-var bag = new Images('bag', 'img/bag.jpg');          //All objects
-var banana = new Images('banana', 'img/banana.jpg');
-var boots = new Images('boots', 'img/boots.jpg');
-var chair = new Images('chair', 'img/chair.jpg');
-var cthulhu = new Images('cthulhu', 'img/cthulhu.jpg');
-var dragon = new Images('dragon', 'img/dragon.jpg');
-var pen = new Images('pen', 'img/pen.jpg');
-var scissors = new Images('scissors', 'img/scissors.jpg');
-var shark = new Images('shark', 'img/shark.jpg');
-var sweep = new Images('sweep', 'img/sweep.png');
-var unicorn = new Images('unicorn', 'img/unicorn.jpg');
-var usb = new Images('usb', 'img/usb.gif');
-var water_can = new Images('water_can', 'img/water-can.jpg');
-var wine_glass = new Images('wine_glass', 'img/wine-glass.jpg');
+for (var i = 0; i < allNames.length; i++) {
+  locationsArray.push(new Images(allNames[i], allSources[i]));
+};
 
 var img1 = document.getElementById('first');
 var img2 = document.getElementById('second');
 var img3 = document.getElementById('third');
-
 var rand1;
 var rand2;
 var rand3;
-
-var locationsArray = [bag, banana, boots, chair, cthulhu, dragon, pen, scissors, shark, sweep, unicorn, usb, water_can, wine_glass]
 
 function random(){
   //img1 = document.getElementById('first');
@@ -70,9 +57,8 @@ function handleChangeImage(image) {
   totalClicks++;
   checkButton();
   random();
-  image.percentClicked = (image.timesClicked / image.timesDisplayed).toFixed(2) * 100;
+  image.percentClicked = (parseInt(image.timesClicked) / parseInt(image.timesDisplayed)).toFixed(2) * 100;
 }
-
 
 first.addEventListener('click', function(){
   handleChangeImage(locationsArray[rand1])     //this is the input for the handler
@@ -86,24 +72,26 @@ third.addEventListener('click', function(){
   handleChangeImage(locationsArray[rand3])
 });
 
-resultButton.addEventListener('click', makeChart);
+resultButton.addEventListener('click', makeChartOne);
+resultButton.addEventListener('click', makeChartTwo);
 
-var hidden;
   function checkButton() {
-    if (totalClicks < 1){   
+    var hidden;
+    if (totalClicks < 1){
       // locationsArray.length
-
       resultButton.removeAttribute(hidden);
     } else {
       resultButton.style.display = "block"
     }
   }
 
-
-  function makeChart() {
-
-var allClicks = [];
-var allDisplays = [];
+function makeChartOne() {
+  document.getElementById('chartOneHeader').innerHTML = '';
+  var allClicks = [];
+  var allDisplays = [];
+  var header = document.createElement('h3');
+  header.textContent = 'Times displayed vs. Times chosen';
+  chartOneHeader.appendChild(header);
   for (var i = 0; i < locationsArray.length; i++) {
   allClicks[i] = locationsArray[i].timesClicked;
   allDisplays[i] = locationsArray[i].timesDisplayed;
@@ -114,15 +102,15 @@ var allDisplays = [];
       datasets: [
           {
               label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
-              strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
+              fillColor: "rgb(225,234,253)",
+              // strokeColor: "rgba(62,101,178,0.7)",
+              highlightFill: "rgb(94,131,205)",
               highlightStroke: "rgba(220,220,220,1)",
               data: allClicks
           },
           {
               label: "My Second dataset",
-              fillColor: "rgba(151,187,205,0.5)",
+              fillColor: "rgb(176,198,242)",
               strokeColor: "rgba(151,187,205,0.8)",
               highlightFill: "rgba(151,187,205,0.75)",
               highlightStroke: "rgba(151,187,205,1)",
@@ -132,6 +120,30 @@ var allDisplays = [];
   };
 
   var context = document.getElementById('popularity').getContext('2d');
-  var myBarChart = new Chart(context).Bar(data);
+  var myBarChartOne = new Chart(context).Bar(data);
+}
 
+function makeChartTwo() {
+
+var allPercentClicked = [];
+for (var i = 0; i < locationsArray.length; i++) {
+allPercentClicked[i] = locationsArray[i].percentClicked;
+}
+
+var data = {
+    labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water_can", "wine_glass"],
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgb(176,198,242)",
+            strokeColor: "rgba(62,101,178,0.7)",
+            highlightFill: "rgb(94,131,205)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: allPercentClicked
+        },
+    ]
+};
+
+var context = document.getElementById('percent').getContext('2d');
+var myBarChartTwo = new Chart(context).Bar(data);
 }
