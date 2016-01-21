@@ -82,6 +82,7 @@ resultButton.addEventListener('click', makeChartTwo);
 
 function makeChartOne() {
   document.getElementById('chartOneHeader').innerHTML = '';
+  document.getElementById('chartTwoHeader').innerHTML = '';
   var allClicks = [];
   var allDisplays = [];
   var header = document.createElement('chartOneHeader');
@@ -100,19 +101,13 @@ function makeChartOne() {
     datasets: [
       {
       label: "My First dataset",
-              fillColor: "rgb(225,234,253)",
-              // strokeColor: "rgba(62,101,178,0.7)",
-              highlightFill: "rgb(94,131,205)",
-              highlightStroke: "rgba(220,220,220,1)",
-              data: allClicks
+              fillColor: "rgb(225,234,253)", highlightFill: "rgb(94,131,205)",
+              highlightStroke: "rgba(220,220,220,1)", data: allClicks
           },
           {
-              label: "My Second dataset",
-              fillColor: "rgb(176,198,242)",
-              strokeColor: "rgba(151,187,205,0.8)",
-              highlightFill: "rgba(151,187,205,0.75)",
-              highlightStroke: "rgba(151,187,205,1)",
-              data: allDisplays
+              label: "My Second dataset", fillColor: "rgb(176,198,242)",
+              strokeColor: "rgba(151,187,205,0.8)", highlightFill: "rgba(151,187,205,0.75)",
+              highlightStroke: "rgba(151,187,205,1)", data: allDisplays
           }
       ]
   };
@@ -132,12 +127,9 @@ var data = {
     labels: ["bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water_can", "wine_glass"],
     datasets: [
         {
-            label: "My First dataset",
-            fillColor: "rgb(176,198,242)",
-            strokeColor: "rgba(62,101,178,0.7)",
-            highlightFill: "rgb(94,131,205)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: allPercentClicked
+            label: "My First dataset", fillColor: "rgb(176,198,242)",
+            strokeColor: "rgba(62,101,178,0.7)", highlightFill: "rgb(94,131,205)",
+            highlightStroke: "rgba(220,220,220,1)", data: allPercentClicked
         },
     ]
 };
