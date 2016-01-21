@@ -6,4 +6,6 @@ End of Monday: I created a user facing page displaying three images.  My JavaScr
 
 Tuesday. January19th: After my second day I have successfully installed a chart that updates bases on my product analysis.  I have installed a button that hides results after a chosen amount of products are inspected.
 
-Wednesday. January20th
+Wednesday. January20th. Finished creating a new chart for percentages as well as updating some more CSS.  I tried to lint this project but couldn't get my linter to run the linting commands
+
+Thursday Morning. January21st.  Got linting to work and D.R.Y'd out my code.

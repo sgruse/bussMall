@@ -13,7 +13,24 @@ h1 {
   font-family: Trebuchet MS;
 }
 
-h3 {
+#chartTwoHeader {
+  display: flex;
+  justify-content: right;
+  margin: 25px 100px 25px 100px;
+}
+
+#chartOneHeader {
+  display: flex;
+  justify-content: center;
+  margin: 25px 100px 25px 100px;
+}
+
+#headerSection{
+  display: flex;
+  justify-content: center;
+}
+
+#sectionButton {
   display: flex;
   justify-content: center;
 }
@@ -23,10 +40,6 @@ p {
   text-align: center;
 }
 
-.chartOneHeader {
-  display: flex;
-  justify-content: center;
-}
 
 .pictures {
   display: flex;
@@ -54,13 +67,9 @@ section {
 .chartSection{
   display: flex;
   justify-content: center;
-  /*background-color: white;*/
+  margin: 10px 50px 10px 50px;
 }
 
-#sectionButton {
-  display: flex;
-  justify-content: center;
-}
 
 /*#resultButton {
 	-moz-box-shadow: 3px 4px 0px 0px #497b8c;
