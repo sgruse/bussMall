@@ -53,6 +53,7 @@ function handleChangeImage(image) {
   checkButton();
   random();
   image.percentClicked = (parseInt(image.timesClicked) / parseInt(image.timesDisplayed)).toFixed(2) * 100;
+  localStorage.setItem('dataPersist', JSON.stringify(locationsArray));
 }
 
 function checkButton() {
@@ -136,4 +137,18 @@ var data = {
 
 var context = document.getElementById('percent').getContext('2d');
 var myBarChartTwo = new Chart(context).Bar(data);
+}
+var clearLs = document.getElementById('clearLs');
+var handleLsClear = function() {
+  console.log('clearing local storage');
+  localStorage.clear();
+};
+clearLs.addEventListener('click', handleLsClear);
+
+var chartData = localStorage.getItem('dataPersist');
+if(chartData) {
+  locationsArray = JSON.parse(chartData);
+} else {
+  console.log('local storage empty! initializing:');
+  localStorage.setItem('dataPersist', JSON.stringify(locationsArray));
 }
