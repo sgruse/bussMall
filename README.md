@@ -5,3 +5,5 @@ End of Monday: I created a user facing page displaying three images.  My JavaScr
 
 
 Tuesday. January19th: After my second day I have successfully installed a chart that updates bases on my product analysis.  I have installed a button that hides results after a chosen amount of products are inspected.
+
+Wednesday. January20th

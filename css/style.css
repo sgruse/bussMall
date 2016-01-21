@@ -10,6 +10,12 @@ header {
 
 h1 {
   text-align: center;
+  font-family: Trebuchet MS;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
 }
 
 p {
@@ -17,6 +23,10 @@ p {
   text-align: center;
 }
 
+.chartOneHeader {
+  display: flex;
+  justify-content: center;
+}
 
 .pictures {
   display: flex;
@@ -39,6 +49,12 @@ p {
 section {
   display: flex;
   justify-content: center;
+}
+
+.chartSection{
+  display: flex;
+  justify-content: center;
+  /*background-color: white;*/
 }
 
 #sectionButton {
