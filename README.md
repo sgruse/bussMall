@@ -9,3 +9,5 @@ Tuesday. January19th: After my second day I have successfully installed a chart 
 Wednesday. January20th. Finished creating a new chart for percentages as well as updating some more CSS.  I tried to lint this project but couldn't get my linter to run the linting commands
 
 Thursday Morning. January21st.  Got linting to work and D.R.Y'd out my code.
+
+Friday January 22nd.  Final push of my final project "Buss Mall".  My project is finished and fully linted.  I have local storage working and both charts producing accurate numbers.  
